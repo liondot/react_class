@@ -6,7 +6,7 @@ import './App.css';
 function App() {
   
 
-  let [글제목, 글제목변경] = useState(['맛집 추천 리스트', '카페추천리스트'])
+  let [글제목, 글제목변경] = useState(['맛집 추천 리스트', '카페추천리스트', '여름여행지추천리스트'])
   let [글제목2, 글제목변경2] = useState('맛집 추천 리스트2')
   let [글제목3, 글제목변경3] = useState(['맛집 추천 리스트3', '강남맛집', '남대문맛집', '홍대맛집'])
   let [좋아요, 좋아요변경] = useState(0)
@@ -16,20 +16,26 @@ function App() {
 
   let cursor = "cursor:point"
 
+  function 제목바꾸기() {
+    let newArray = [...글제목];
+    newArray[0] = '떡볶이 맛집';
+    글제목변경(newArray);
+  }
+
   return (
     <div className="App">
       <div className='black-nav'>
         <div>개발 Blog</div>
       </div>
-      <button onClick={()=> {글제목변경(글제목[1])} }>{글제목[0]}</button>
+      <button onClick={ 제목바꾸기 }>버튼</button>
 
       <div className='list'>
-        <h3> { posts } <span  onClick={()=> {좋아요변경(좋아요 + 1)} }>♥</span> {좋아요} </h3>
+        <h3> { 글제목[0] } <span onClick={()=> {좋아요변경(좋아요 + 1)} }>♥</span> {좋아요} </h3>
         <p>2월 17일 발생</p>
         <hr/>
       </div>
       <div className='list'>
-        <h3> { 글제목 } </h3>
+        <h3> { posts } </h3>
         <p>2월 17일 발생</p>
         <hr/>
       </div>
